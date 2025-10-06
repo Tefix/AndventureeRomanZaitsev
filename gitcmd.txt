@@ -7,3 +7,7 @@ git config --global list
 muudatuste kinnitamine
 gir add .
 git commit -a -m "..."
+
+-----
+ssh võti loomiseks; id:rsa on vaja lisada github
+ssh-keyhen -o -t rsa -C "ihavearm0@gmail.com"
