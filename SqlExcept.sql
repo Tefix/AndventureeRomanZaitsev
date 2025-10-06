@@ -20,4 +20,3 @@ FROM DimCustomer
 WHERE YearlyIncome >= 20000
 ORDER BY FirstName
 
-.
