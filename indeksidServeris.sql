@@ -40,3 +40,24 @@ EXECUTE SP_HELPCONSTRAINT DimEmployee
 CREATE UNIQUE INDEX IX_DimEmployee_Title
 ON DimEmployee(Title)
 WITH IGNORE_DUP_KEY
+
+-- Indeksi plussid ja miinused
+-- Indeksist lähtuvalt on kergem üles otsida palkasid, mis jäävad vahemikku 4000 kuni 8000 ning kasutada reaaadressi.
+SELECT * FROM DimEmployee WHERE BaseRate > 5 AND BaseRate < 10
+
+-- Kui soovid uuendada või kustutada rida, siis SQL server peab esmalt leidma rea ja indeks saab aidata seda otsingut kiirendada.
+DELETE FROM DimEmployee WHERE BaseRate = 9.50
+UPDATE DimEmployee SET BaseRate = 50 WHERE BaseRate = 9.25
+-- Käivita
+SELECT * FROM DimEmployee
+
+-- See välistab päringu käivitamisel ridade sorteerimise, mis oluliselt  suurendab  protsessiaega.
+SELECT * FROM DimEmployee ORDER BY BaseRate
+
+-- BaseRate veeru indeks saab aidata ka allpool olevat päringut. Seda tehakse indeksi tagurpidi skanneerimises.
+SELECT * FROM DimEmployee ORDER BY BaseRate DESC
+
+-- GROUP BY päringud saavad kasu indeksitest. Kui soovid grupeerida töötajaid sama palgaga, siis päringumootor saab kasutada BaseRate veeru indeksit
+SELECT BaseRate, COUNT(BaseRate) AS Total
+FROM DimEmployee
+GROUP BY BaseRate
