@@ -5,7 +5,16 @@ git config --global list
 
 -----
 muudatuste kinnitamine
+<<<<<<< HEAD
 git status
 git add .
 git commit -a -m "..."
 git push
+=======
+gir add .
+git commit -a -m "..."
+
+-----
+ssh võti loomiseks; id:rsa on vaja lisada github
+ssh-keyhen -o -t rsa -C "ihavearm0@gmail.com"
+>>>>>>> 753cc2a317be0219300ee44eb392ad5158dd6a7f
