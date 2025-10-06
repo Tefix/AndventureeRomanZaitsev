@@ -1,4 +1,3 @@
-﻿--я хочу домой очень((((
 select * from DimEmployee
 
 

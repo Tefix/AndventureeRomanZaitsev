@@ -1,1 +1,9 @@
-trewqytrf
+git config --global -user.name "Tefix"
+git config --globbal user.email "ihavearm0@gmail.com"
+git init
+git config --global list
+
+-----
+muudatuste kinnitamine
+gir add .
+git commit -a -m "..."
