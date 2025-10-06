@@ -20,3 +20,23 @@ ON tblEmployee(Gender DESC, Salary ASC);
 -- Loob mitteklasterindeksi veeru FirstName järgi, et kiirendada otsingut ilma andmete salvestusjärjestust muutmata
 CREATE NONCLUSTERED INDEX IX_tblEmployee_Name 
 ON tblEmployee(FirstName);
+
+- Unikaalne ja mitte-unikaalne indeks
+-- Kui soovid vaadata Indeksit
+EXEC sp_helpindex DimEmployee;
+
+-- Kuidas saab luua unikaalset mitte-klastreeritud indeksit FirstName ja LastName veeru põhjal
+CREATE UNIQUE NONCLUSTERED INDEX UIX_DimEmployee_FirstName_LastName
+On DimEmployee(FirstName, LastName)
+
+--Kui peaksid lisama unikaalse piirangu, siis unikaalne indeks luuakse tagataustal. Selle tõestuseks lisame koodiga unikaalse piirangu City veerule.
+ALTER TABLE DimEmployee 
+ADD CONSTRAINT UQ_DimEmployee_Title
+UNIQUE NONCLUSTERED (Title)
+-- Käivita
+EXECUTE SP_HELPCONSTRAINT DimEmployee
+
+-- Kui soovin ainult viie rea tagasi lükkamist ja viie mitte korduva sisestamist, siis selleks kasutatakse IGNORE_DUP_KEY valikut.
+CREATE UNIQUE INDEX IX_DimEmployee_Title
+ON DimEmployee(Title)
+WITH IGNORE_DUP_KEY
