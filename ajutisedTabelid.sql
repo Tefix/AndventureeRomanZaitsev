@@ -3,6 +3,7 @@ USE AdventureWorksDW2019;
 SELECT * FROM DimCustomer;
 -- Allpool olevas SP-s luuakse ajutine tabel #PersonsDetails ja edastab andmeid ja 
 -- lõhub ajutise tabeli automaatselt peale käsu lõpule jõudmist.
+-- ajaluste tabeelid loomistatu proceduur 
 CREATE PROCEDURE spCreateLocalTempTable
 AS 
 BEGIN
