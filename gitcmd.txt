@@ -5,5 +5,7 @@ git config --global list
 
 -----
 muudatuste kinnitamine
-gir add .
+git status
+git add .
 git commit -a -m "..."
+git push
