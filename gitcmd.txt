@@ -1,5 +1,5 @@
-git config --global -user.name "Tefix"
-git config --globbal user.email "ihavearm0@gmail.com"
+git config --global user.name "Tefix"
+git config --global user.email "ihavearm0@gmail.com"
 git init
 git config --global list
 
