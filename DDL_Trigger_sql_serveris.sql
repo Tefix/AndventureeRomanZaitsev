@@ -47,5 +47,33 @@ sp_rename 'TestTable', 'NewTestTable'
 -- Järgnev kood muudab Id veergu NewTestTabel tabelis NewId peale
 sp_rename 'NewTestTable.Id' , 'NewId', 'column'
 
---test
---test
+-- Andmebaasi ulatuses olev DDL trigger
+-- See trigger takistab tabelite loomist, muutmist ja kustutamist antud andmebaasis
+CREATE TRIGGER tr_DatabaseScopeTrigger 
+ON Database
+FOR CREATE_TABLE, ALTER_TABLE, DROP_TABLE
+AS
+BEGIN
+ROLLBACK
+PRINT 'You cannot create, modify, alter or drop a table in the current database'
+END
+
+-- Serveri ulatuses olev DDL trigger
+-- See trigger takistab tabelite loomist, muutmist ja kustutamist kõigis serverites, kus trigger on loodud
+CREATE TRIGGER tr_ServerScopeTrigger
+ON ALL SERVER
+FOR CREATE_TABLE, ALTER_TABLE, DROP_TABLE
+AS
+BEGIN
+ROLLBACK
+PRINT 'You cannot create, modify, alter or drop a table in the current database'
+END
+
+-- Kuidas saab Serveri ulatuses olevat DDL triggerit desaktiveerida
+DISABLE TRIGGER tr_ServerScopeTrigger ON ALL SERVER
+
+-- Kuidas saab Serveri ulatuses olevat DDL triggerit aktiveerida
+ENABLE TRIGGER tr_ServerScopeTrigger ON ALL SERVER
+
+-- Kuidas kustutada Serveri ulatuses olev DDL trigger
+DROP TRIGGER tr_ServerScopeTrigger ON ALL SERVER
