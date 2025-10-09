@@ -1,3 +1,15 @@
 Triggers, Procedures, Functions 
 
-<img width="275" height="367" alt="497724790-e78b7545-2058-43c3-ae89-1ae9d7b20edf" src="https://github.com/user-attachments/assets/d4870f61-3521-4a5d-9b2a-55aed3c0cbc8" />
+<img width="306" height="469" alt="{ADD79DB3-663B-4E49-8F20-025DD0EF8620}" src="https://github.com/user-attachments/assets/fcd91996-e95d-4a22-a0f6-6a903e1f057c" />
+
+Scalar valued only 
+
+ Views
+
+<img width="315" height="294" alt="{C591F439-09D5-435F-B126-A4127AF1C39B}" src="https://github.com/user-attachments/assets/280d2471-1480-4952-b5d5-cd6556646cbc" />
+
+
+ Index
+
+<img width="625" height="141" alt="{E4CC5139-4450-4E19-9F7C-8555E04B83F3}" src="https://github.com/user-attachments/assets/b21bee90-e272-441f-a620-dfcbb5633e49" />
+
